@@ -1,0 +1,9 @@
+package com.xworkz.tour.dao;
+
+public class TouristTester {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

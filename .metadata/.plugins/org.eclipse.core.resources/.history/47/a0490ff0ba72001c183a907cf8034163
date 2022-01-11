@@ -1,0 +1,10 @@
+package com.xworkz.tour.dao;
+
+public class TouristTester {
+
+	public static void main(String[] args) {
+		EntityManagerFactory entityManangerFactory=persistence.createEntityManagerFactory("com.xworkz.tour");
+		System.out.println(entityManagerFactory);
+	}
+
+}

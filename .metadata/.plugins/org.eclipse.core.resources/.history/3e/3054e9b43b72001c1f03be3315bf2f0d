@@ -1,0 +1,9 @@
+package com.xworkz.dao;
+
+import com.xworkz.entity.StateEntity;
+
+public interface StateInterface {
+public void save(StateEntity entity);
+public void getById(int Id);
+public void delete(int Id);
+}

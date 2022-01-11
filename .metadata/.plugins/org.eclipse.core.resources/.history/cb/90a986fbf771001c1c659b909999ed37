@@ -1,0 +1,13 @@
+package com.xworkz.dao;
+
+import com.xworkz.entity.StateEntity;
+
+public class StateDaoImpl implements StateInterface {
+
+	@Override
+	public void save(StateEntity entity) {
+		System.out.println(entity);
+		
+	}
+
+}

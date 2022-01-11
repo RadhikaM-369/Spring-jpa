@@ -1,0 +1,6 @@
+package com.xworkz.dao;
+
+public interface StateInterface {
+public void save(StateEntity entity);
+
+}

@@ -1,0 +1,12 @@
+package com.xworkz.dao;
+
+public interface PatientDao {
+	public void create(PatientEntity entity);
+	public PatientEntity getById(int id);
+	default void updatePatientEntity(String newbirth,int id) {
+		return;
+	}
+	default void delete(int id) {
+		
+	}
+}

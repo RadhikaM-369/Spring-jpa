@@ -1,0 +1,59 @@
+package com.xworkz.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.id.Configurable;
+
+import com.xworkz.entity.StateEntity;
+
+public class StateDaoImpl implements StateInterface {
+
+	@Override
+	public void save(StateEntity entity) {
+		System.out.println(entity);
+		Configuration configuration=new Configuration();
+		configuration.addAnnotatedClass(StateEntity.class);
+		configuration.configure();
+		SessionFactory factory=configuration.buildSessionFactory();
+		if(factory!=null) {
+			System.out.println("Factory is not null");
+			Session session=factory.openSession();
+			session.save(entity);
+			Transaction transaction=session.beginTransaction();
+			transaction.commit();
+			session.close();
+		}
+		factory.close();
+		System.out.println(" method closed");		
+	}
+
+	@Override
+	public getById(int Id) {
+	StateEntity entity=null;
+	System.out.println("Invoked the getById");
+	System.out.println("id passed as: "+Id);
+	Configuration configuration=new Configuration().configure().addAnnotatedClass(StateEntity.class);
+	SessionFactory factory = configuration.buildSessionFactory();		//loaded file into hibernate 
+	if (factory != null) {
+		Session session = factory.openSession();
+		entity = session.get(StateEntity.class, Id);
+		if (entity != null) {
+			System.out.println("entity found as id:" + Id);
+		} else {
+			System.out.println("entity is not found as id:" + Id);
+		}
+		session.close();
+	}
+	factory.close();
+	return entity;
+	}
+
+	@Override
+	public void delete(int Id) {
+	
+		
+	}
+
+}

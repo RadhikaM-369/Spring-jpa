@@ -1,0 +1,8 @@
+package com.xworkz.dao;
+
+public class PatientTester {
+	public static void main(String args[]) {
+		
+	}
+
+}

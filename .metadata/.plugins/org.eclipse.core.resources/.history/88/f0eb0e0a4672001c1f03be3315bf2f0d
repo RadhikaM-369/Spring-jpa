@@ -1,0 +1,31 @@
+package com.xworkz.dao;
+
+import com.xworkz.entity.PatientEntity;
+
+public class PatientImpl implements PatientDao {
+
+	@Override
+	public void create(PatientEntity entity) {
+		System.out.println(entity);
+		Configuration configuration = new Configuration();
+		configuration.addAnnotatedClass(PatientEntity.class);
+		configuration.configure();
+		SessionFactory factory = configuration.buildSessionFactory();
+		if (factory != null) {
+			Session session = factory.openSession();
+			session.save(entity);
+			Transaction transaction = session.beginTransaction();
+			transaction.commit();
+
+		}
+		factory.close();
+		
+	}
+
+	@Override
+	public PatientEntity getById(int id) {
+		
+		return null;
+	}
+
+}

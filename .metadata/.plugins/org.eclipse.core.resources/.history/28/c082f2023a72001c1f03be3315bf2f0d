@@ -1,0 +1,31 @@
+package com.xworkz.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.id.Configurable;
+
+import com.xworkz.entity.StateEntity;
+
+public class StateDaoImpl implements StateInterface {
+
+	@Override
+	public void save(StateEntity entity) {
+		System.out.println(entity);
+		Configuration configuration=new Configuration();
+		configuration.addAnnotatedClass(StateEntity.class);
+		configuration.configure();
+		SessionFactory factory=configuration.buildSessionFactory();
+		if(factory!=null) {
+			System.out.println("Factory is not null");
+			Session session=factory.openSession();
+			session.save(entity);
+			Transaction transaction=session.beginTransaction();
+			transaction.commit();
+			session.close();
+		}
+		
+	}
+
+}

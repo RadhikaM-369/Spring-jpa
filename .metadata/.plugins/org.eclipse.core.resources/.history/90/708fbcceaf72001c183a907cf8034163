@@ -1,0 +1,10 @@
+package com.xworkz.tour.entity;
+
+public class TouristEntity {
+private int id;
+private String location;
+private int sealevel;
+private String famousFor;
+private int entryFee;
+private String season;
+}
