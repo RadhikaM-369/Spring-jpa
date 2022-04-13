@@ -116,13 +116,7 @@ public class PassportServiceImpl implements PassportService {
 				valid = true;
 				System.out.println("Valid property VerifiedDocument");
 			}
-			if(valid)
-			{
 			dao.save(pEntity);
-			}
-			else{
-				System.out.println("invalid entity");
-			}
 
 		} catch (PersistenceException e) {
 			e.printStackTrace();
